@@ -30,11 +30,14 @@ export const exampleRouter = createTRPCRouter({
             }
           );
         const fixedData = res.data.choices[0]?.text;
-
-        if (fixedData) {
-          return fixedData;
-        }
-        return null;
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: String(process.env.NEXT_PUBLIC_OPENAI_API_KEY),
+        });
+        // if (fixedData) {
+        //   return fixedData;
+        // }
+        // return null;
       } catch (e) {
         console.error(e);
         throw new TRPCError({
