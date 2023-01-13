@@ -5,7 +5,7 @@ import axios, { AxiosResponse } from "axios";
 import { Configuration, CreateCompletionResponse, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 
@@ -28,7 +28,9 @@ export const exampleRouter = createTRPCRouter({
             {
               headers: {
                 "Content-Type": "application/json",
-                Authorization: `Bearer ${process.env.OPENAI_API_KEY || ""}`,
+                Authorization: `Bearer ${
+                  process.env.NEXT_PUBLIC_OPENAI_API_KEY || ""
+                }`,
               },
             }
           );
