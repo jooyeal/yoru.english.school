@@ -31,7 +31,7 @@ export const exampleRouter = createTRPCRouter({
             },
           }
         );
-        const fixedData: unknown = res.data.choices[0].text;
+        const fixedData: string = res.data.choices[0].text;
 
         if (fixedData) {
           return fixedData;
