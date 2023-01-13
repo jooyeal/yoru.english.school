@@ -7,7 +7,7 @@ import { Configuration, CreateCompletionResponse, OpenAIApi } from "openai";
 export const exampleRouter = createTRPCRouter({
   fix: publicProcedure
     .input(z.object({ text: z.string() }))
-    .mutation(async ({ input }) => {
+    .mutation(({ input }) => {
       try {
         return process.env.NEXT_PUBLIC_OPENAI_API_KEY;
         // const res: AxiosResponse<CreateCompletionResponse, any> =
