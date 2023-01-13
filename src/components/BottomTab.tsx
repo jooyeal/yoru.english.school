@@ -2,9 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { AiOutlineEdit, AiOutlineMessage } from "react-icons/ai";
 
-type Props = {};
-
-const BottomTab = (props: Props) => {
+const BottomTab = () => {
   return (
     <div className="fixed bottom-0 flex w-full justify-between p-4">
       <div className="flex w-1/2 justify-center">

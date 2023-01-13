@@ -37,7 +37,7 @@ const Talk: NextPage = () => {
 
   useEffect(() => {
     mutate({ text: "please say hello, my friend!" });
-  }, []);
+  }, [mutate]);
 
   useEffect(() => {
     scrollToBottom();

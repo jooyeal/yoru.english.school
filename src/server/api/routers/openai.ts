@@ -27,11 +27,11 @@ export const exampleRouter = createTRPCRouter({
           {
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+              Authorization: `Bearer ${process.env.OPENAI_API_KEY || ""}`,
             },
           }
         );
-        const fixedData = res.data.choices[0].text;
+        const fixedData: unknown = res.data.choices[0].text;
 
         if (fixedData) {
           return fixedData;

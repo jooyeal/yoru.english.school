@@ -40,7 +40,7 @@ const Grammar: NextPage = () => {
       <div className="p-6 pb-20">
         <VStack>
           <Text fontSize={20} color="white" fontWeight="bold">
-            Hello, everyone! I'll help to improve your english skill.
+            Hello, everyone! I will help to improve your english skill.
           </Text>
           <Text fontSize={20} color="white" fontWeight="bold">
             If you show me some texts, I can correct the grammar and spelling as
