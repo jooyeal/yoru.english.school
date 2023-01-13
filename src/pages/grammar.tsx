@@ -15,6 +15,7 @@ import { api } from "../utils/api";
 const Grammar: NextPage = () => {
   const toast = useToast();
   const [userText, setUserText] = useState<string>();
+
   const { data, mutate, isLoading } = api.openai.fix.useMutation({
     onError: (e) =>
       toast({

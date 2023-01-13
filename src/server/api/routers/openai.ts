@@ -9,31 +9,29 @@ export const exampleRouter = createTRPCRouter({
     .input(z.object({ text: z.string() }))
     .mutation(async ({ input }) => {
       try {
-        const res: AxiosResponse<CreateCompletionResponse, any> =
-          await axios.post(
-            "https://api.openai.com/v1/edits",
-            {
-              model: "text-davinci-edit-001",
-              input: input.text,
-              instruction:
-                "Fix the spelling mistakes and Fix the grammar as well",
-              temperature: 0.7,
-              top_p: 1,
-            },
-            {
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${
-                  process.env.NEXT_PUBLIC_OPENAI_API_KEY || ""
-                }`,
-              },
-            }
-          );
-        const fixedData = res.data.choices[0]?.text;
-        throw new TRPCError({
-          code: "INTERNAL_SERVER_ERROR",
-          message: String(process.env.NEXT_PUBLIC_OPENAI_API_KEY),
-        });
+        return process.env.NEXT_PUBLIC_OPENAI_API_KEY;
+        // const res: AxiosResponse<CreateCompletionResponse, any> =
+        //   await axios.post(
+        //     "https://api.openai.com/v1/edits",
+        //     {
+        //       model: "text-davinci-edit-001",
+        //       input: input.text,
+        //       instruction:
+        //         "Fix the spelling mistakes and Fix the grammar as well",
+        //       temperature: 0.7,
+        //       top_p: 1,
+        //     },
+        //     {
+        //       headers: {
+        //         "Content-Type": "application/json",
+        //         Authorization: `Bearer ${
+        //           process.env.NEXT_PUBLIC_OPENAI_API_KEY || ""
+        //         }`,
+        //       },
+        //     }
+        //   );
+        // const fixedData = res.data.choices[0]?.text;
+
         // if (fixedData) {
         //   return fixedData;
         // }
