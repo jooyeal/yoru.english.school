@@ -4,11 +4,6 @@ import { TRPCError } from "@trpc/server";
 import axios, { AxiosResponse } from "axios";
 import { Configuration, CreateCompletionResponse, OpenAIApi } from "openai";
 
-const configuration = new Configuration({
-  apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
-
 export const exampleRouter = createTRPCRouter({
   fix: publicProcedure
     .input(z.object({ text: z.string() }))
@@ -52,6 +47,10 @@ export const exampleRouter = createTRPCRouter({
     .input(z.object({ text: z.string() }))
     .mutation(async ({ input }) => {
       try {
+        const configuration = new Configuration({
+          apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+        });
+        const openai = new OpenAIApi(configuration);
         const response = await openai.createCompletion({
           model: "text-davinci-003",
           prompt: input.text,
