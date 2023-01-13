@@ -34,7 +34,7 @@ const Home: NextPage = () => {
             size="lg"
             position="fixed"
           >
-            let's learn
+            lets learn
           </Button>
         </Link>
       </Layout>
